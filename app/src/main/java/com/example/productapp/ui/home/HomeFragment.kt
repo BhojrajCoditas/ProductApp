@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.productapp.R
 import com.example.productapp.adapter.ProductAdapter
@@ -49,11 +50,16 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         binding.recyclerViewProducts.layoutManager = GridLayoutManager(requireContext(), 2)
+
         productAdapter = ProductAdapter(emptyList()) { product ->
-            // TODO: Navigate to ProductDetailFragment later
+            val action = HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(product)
+            findNavController().navigate(action)
         }
+
         binding.recyclerViewProducts.adapter = productAdapter
     }
+
+
 
     private fun observeProducts() {
         lifecycleScope.launch {
@@ -93,7 +99,7 @@ class HomeFragment : Fragment() {
             val button = LayoutInflater.from(requireContext())
                 .inflate(R.layout.dynamic_category_button, categoryContainer, false) as androidx.appcompat.widget.AppCompatButton
 
-            button.text = category.capitalize()
+            button.text = category.replaceFirstChar { it.uppercase() }
 
             button.setOnClickListener {
                 if (category.equals("All", ignoreCase = true)) {

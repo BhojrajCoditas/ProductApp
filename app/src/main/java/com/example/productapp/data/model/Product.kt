@@ -1,6 +1,5 @@
 package com.example.productapp.data.model
 
-import android.media.Image
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 

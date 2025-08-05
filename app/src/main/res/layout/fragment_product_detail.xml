@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Back & Search Icons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/buttonBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/rounded_button_background"
+                android:src="@drawable/backarrow"
+                android:contentDescription="back" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/buttonSearch"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/rounded_button_background"
+                android:src="@drawable/search"
+                android:contentDescription="search" />
+        </LinearLayout>
+
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/imageProductBanner"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/product_image_desc" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/textProductTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <!-- Rating + Duration -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/textRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.9"
+                android:textSize="14sp"
+                android:textColor="@android:color/holo_orange_dark" />
+
+            <TextView
+                android:id="@+id/textDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• 26 mins"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+
+        <!-- Description -->
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <!-- Spicy Level Slider -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spicy"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/seekBarSpicy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:max="2"
+                android:progress="0" />
+        </LinearLayout>
+
+        <!-- Portion Selector -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Portion"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/buttonDecrease"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/rounded_button_background"
+                android:src="@drawable/minus"
+                android:contentDescription="minus" />
+
+            <TextView
+                android:id="@+id/textPortionCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:text="1"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/buttonIncrease"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/rounded_button_background"
+                android:src="@drawable/plus"
+                android:contentDescription="plus" />
+        </LinearLayout>
+
+        <!-- Price and Order Now Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:id="@+id/textTotalPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_price_background"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/buttonOrderNow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/rounded_button_background"
+                android:text="ORDER NOW"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
