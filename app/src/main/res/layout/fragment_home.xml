@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/containerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header (App Name + Profile Image) -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/textAppName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BitBazaar"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/maskgroup"
+                android:background="@drawable/circle_background"
+                android:scaleType="centerCrop"
+                android:padding="4dp"/>
+        </LinearLayout>
+
+        <!-- Search Bar + Filter Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+
+            <EditText
+                android:id="@+id/editTextSearch"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Search Products"
+                android:drawableStart="@drawable/search"
+                android:background="@drawable/search_background"
+                android:padding="10dp"/>
+
+            <ImageButton
+                android:id="@+id/buttonFilter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/filter"
+                android:background="@drawable/rounded_button_background"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Horizontal Category Tabs -->
+            <HorizontalScrollView
+                android:id="@+id/categoryScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/categoryContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+
+
+        <!-- RecyclerView for Product List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewProducts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+    <!-- Floating Action Button (Optional Add Button) -->
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
