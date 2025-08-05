@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Profile Header Background -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/profile_header_background"> <!-- Gradient BG -->
+
+            <ImageButton
+                android:id="@+id/buttonSettings"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="end|top"
+                android:layout_margin="16dp"
+                android:background="@drawable/rounded_button_background"
+                android:src="@drawable/ic_settings"
+                android:tint="@android:color/white"/>
+        </FrameLayout>
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="-50dp"
+            android:background="@drawable/circle_background_white"
+            android:padding="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_image_placeholder" />
+
+        <!-- Name -->
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_input_background"
+            android:padding="12dp"
+            android:text="Sophia Patel"
+            android:textStyle="bold"
+            android:hint="Name"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_input_background"
+            android:padding="12dp"
+            android:text="sophiapatel@gmail.com"
+            android:hint="Email"/>
+
+        <!-- Delivery Address -->
+        <EditText
+            android:id="@+id/editTextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_input_background"
+            android:padding="12dp"
+            android:text="123 Main St Apartment 4A, New York, NY"
+            android:hint="Delivery Address"/>
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_input_background"
+            android:padding="12dp"
+            android:text="password123"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_lock"
+            android:hint="Password"/>
+
+        <!-- Payment Details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Payment Details"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_right"/>
+        </LinearLayout>
+
+        <!-- Order History -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Order History"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_right"/>
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:id="@+id/buttonEditProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_primary_background"
+                android:text="Edit Profile"
+                android:textColor="@android:color/white"/>
+
+            <Button
+                android:id="@+id/buttonLogout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/button_outline_red"
+                android:text="Log Out"
+                android:textColor="@color/red"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

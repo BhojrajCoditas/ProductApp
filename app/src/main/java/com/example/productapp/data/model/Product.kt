@@ -12,7 +12,7 @@ data class Product (
     val description: String,
     val category: String,
     val brand: String,
-    val modal: String,
+    val model: String,
     val color: String,
     val discount: Int
 
