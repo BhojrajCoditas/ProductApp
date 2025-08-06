@@ -27,6 +27,9 @@
             app:argType="com.example.productapp.data.model.Product" /> <!-- Pass Product Object -->
     </fragment>
 
-
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.productapp.ui.profile.ProfileFragment"
+        android:label="Profile" />
 
 </navigation>
