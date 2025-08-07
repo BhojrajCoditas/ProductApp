@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.productapp.R
 import com.example.productapp.data.model.Product
@@ -37,11 +38,19 @@ class ProductAdapter(
         holder.textBrand.text = product.brand
         holder.textPrice.text = "₹${product.price}"
 
+        val progressDrawable = CircularProgressDrawable(holder.itemView.context).apply {
+            strokeWidth = 5f
+            centerRadius = 30f
+            start()
+        }
+
         Glide.with(holder.itemView.context)
             .load(product.image)
+            .placeholder(progressDrawable)
             .into(holder.imageProduct)
 
-        val favoriteIcon = if (product.isFavorite) R.drawable.heartfilledicon else R.drawable.favorite
+
+        val favoriteIcon = if (product.isFavorite) R.drawable.heart_red else R.drawable.favorite
         holder.imageFavorite.setImageResource(favoriteIcon)
 
         holder.itemView.setOnClickListener {

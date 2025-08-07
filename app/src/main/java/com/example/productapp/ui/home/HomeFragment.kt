@@ -38,7 +38,8 @@ class HomeFragment : Fragment() {
     private var allProducts: List<Product> = emptyList()
     private var filteredProducts: List<Product> = emptyList()
     private var selectedCategory: String = "All"
-    private var maxPrice: Int = 5000
+    private var selectedCategoryButton: AppCompatButton? = null
+    private var maxPrice: Int = 2000
     private var sortBy: String = ""
     private var showFavoritesOnly: Boolean = false
 
@@ -124,6 +125,7 @@ class HomeFragment : Fragment() {
         })
     }
 
+
     private fun setupCategoryButtons(categories: List<String>) {
         val categoryContainer = binding.categoryContainer
         categoryContainer.removeAllViews()
@@ -134,7 +136,23 @@ class HomeFragment : Fragment() {
 
             button.text = category.replaceFirstChar { it.uppercase() }
 
+            // Default selected button highlighting
+            if (category.equals(selectedCategory, ignoreCase = true)) {
+                button.setBackgroundColor(resources.getColor(R.color.red))
+                button.setTextColor(resources.getColor(R.color.white))
+                selectedCategoryButton = button
+            }
+
             button.setOnClickListener {
+                // Reset previous button color
+                selectedCategoryButton?.setBackgroundResource(R.drawable.category_button_background)
+                selectedCategoryButton?.setTextColor(resources.getColor(R.color.black))
+
+                // Highlight newly selected
+                button.setBackgroundColor(resources.getColor(R.color.red))
+                button.setTextColor(resources.getColor(R.color.white))
+                selectedCategoryButton = button
+
                 selectedCategory = category
                 applyFilters()
             }
@@ -142,6 +160,7 @@ class HomeFragment : Fragment() {
             categoryContainer.addView(button)
         }
     }
+
 
     private fun showFilterBottomSheet() {
         val dialogView = layoutInflater.inflate(R.layout.bottom_sheet_filter, null)

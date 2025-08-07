@@ -62,6 +62,7 @@ dependencies {
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation(libs.androidx.room.runtime.android)
+    implementation(libs.androidx.swiperefreshlayout)
     kapt("androidx.room:room-compiler:2.7.2")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.cardview:cardview:1.0.0")

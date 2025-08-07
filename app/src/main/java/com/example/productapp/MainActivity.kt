@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.productapp.databinding.ActivityMainBinding
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.WindowCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         // Install SplashScreen API
         installSplashScreen()
         super.onCreate(savedInstanceState)
+        // Enable edge-to-edge mode
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         // View Binding
         binding = ActivityMainBinding.inflate(layoutInflater)

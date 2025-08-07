@@ -16,8 +16,10 @@
             android:id="@+id/imageProduct"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/product_image_desc" />
+            android:contentDescription="@string/product_image_desc"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            />
 
         <!-- Heart Icon -->
         <ImageView
@@ -27,9 +29,11 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="8dp"
             android:src="@drawable/favorite"
-        android:contentDescription="favorite_icon"
-        android:clickable="true"
-        android:focusable="true"/>
+            android:contentDescription="favorite_icon"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <!-- Title below image -->
         <LinearLayout
