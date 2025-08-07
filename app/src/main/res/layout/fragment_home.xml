@@ -61,7 +61,7 @@
                 android:id="@+id/buttonFilter"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/filter"
+                android:src="@drawable/settings_sliders"
                 android:background="@drawable/rounded_button_background"
                 android:layout_marginStart="8dp"/>
         </LinearLayout>

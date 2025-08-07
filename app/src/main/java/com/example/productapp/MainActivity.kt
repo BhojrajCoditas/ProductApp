@@ -1,6 +1,7 @@
 package com.example.productapp
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -32,10 +33,13 @@ class MainActivity : AppCompatActivity() {
         // Show/Hide BottomNavigationView based on Destination
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.homeFragment -> binding.bottomNavigationView.visibility = android.view.View.VISIBLE
-                else -> binding.bottomNavigationView.visibility = android.view.View.GONE
+                R.id.homeFragment,
+                R.id.favoriteFragment,
+                R.id.profileFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
+                else -> binding.bottomNavigationView.visibility = View.GONE
             }
         }
+
     }
 }
 

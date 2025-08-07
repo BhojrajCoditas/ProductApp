@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">ProductApp</string>
     <string name="product_image_desc">Product Image</string>
+    <string name="profile">Profile</string>
+    <string name="favorites">Favorites</string>
+    <string name="home">Home</string>
 
 </resources>

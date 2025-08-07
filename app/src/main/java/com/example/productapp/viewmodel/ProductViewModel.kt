@@ -1,40 +1,67 @@
 package com.example.productapp.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.productapp.data.local.AppDatabase
+import com.example.productapp.data.model.FavoriteProduct
 import com.example.productapp.data.model.Product
+import com.example.productapp.data.repository.FavoriteRepository
 import com.example.productapp.data.repository.ProductRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-class ProductViewModel : ViewModel() {
+class ProductViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = ProductRepository()
+    private val productRepository = ProductRepository()
+
+    private val favoriteRepository: FavoriteRepository
 
     private val _productList = MutableStateFlow<List<Product>>(emptyList())
     val productList: StateFlow<List<Product>> = _productList
 
+    val favoriteProducts: Flow<List<FavoriteProduct>>
+
     init {
+        // Get DAO from AppDatabase
+        val dao = AppDatabase.getInstance(application).favoriteProductDao()
+        favoriteRepository = FavoriteRepository(dao)
+
+        favoriteProducts = favoriteRepository.getAllFavorites()
+
         fetchProducts()
     }
 
     private fun fetchProducts() {
         viewModelScope.launch {
             try {
-                val response = repository.getAllProducts()
+                val response = productRepository.getAllProducts()
                 if (response.isSuccessful) {
                     response.body()?.let { productResponse ->
                         _productList.value = productResponse.products
                     }
-                } else {
-                    // Handle error response (Optional)
-                    // You can log the error or show a message to the user
                 }
             } catch (e: Exception) {
-                // Handle Exception (Optional)
-
+                // Handle Exception
             }
         }
+    }
+
+    fun addToFavorites(product: Product) {
+        viewModelScope.launch {
+            favoriteRepository.addToFavorites(product)
+        }
+    }
+
+    fun removeFromFavorites(product: Product) {
+        viewModelScope.launch {
+            favoriteRepository.removeFromFavorites(product)
+        }
+    }
+
+    suspend fun isFavorite(productId: Int): Boolean {
+        return favoriteRepository.isFavorite(productId)
     }
 }

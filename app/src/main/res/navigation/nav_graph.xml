@@ -28,6 +28,11 @@
     </fragment>
 
     <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.productapp.ui.favorite.FavoriteFragment"
+        android:label="Favorites" />
+
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.productapp.ui.profile.ProfileFragment"
         android:label="Profile" />
