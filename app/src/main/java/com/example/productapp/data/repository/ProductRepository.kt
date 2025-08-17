@@ -1,18 +1,19 @@
 package com.example.productapp.data.repository
 
-
-import com.example.productapp.data.api.ApiClient
-import com.example.productapp.data.model.Product
+import com.example.productapp.data.api.ApiService
 import com.example.productapp.data.model.ProductResponse
 import retrofit2.Response
+import javax.inject.Inject
 
-class ProductRepository {
+class ProductRepository @Inject constructor(
+    private val apiService: ApiService
+) {
 
-    suspend fun getAllProducts(): Response<ProductResponse> {
-        return ApiClient.apiService.getAllProducts()
+    suspend fun getAllProducts(): Response<List<ProductResponse>> {
+        return apiService.getAllProducts()
     }
 
-    suspend fun getProductById(id: Int): Response<Product> {
-        return ApiClient.apiService.getProductById(id)
-    }
+//    suspend fun getProductById(id: Int): Response<Product> {
+//        return apiService.getProductById(id)
+//    }
 }

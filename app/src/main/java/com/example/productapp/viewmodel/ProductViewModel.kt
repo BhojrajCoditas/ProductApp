@@ -1,53 +1,50 @@
 package com.example.productapp.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.productapp.data.local.AppDatabase
 import com.example.productapp.data.model.FavoriteProduct
 import com.example.productapp.data.model.Product
 import com.example.productapp.data.repository.FavoriteRepository
 import com.example.productapp.data.repository.ProductRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val productRepository = ProductRepository()
-
+@HiltViewModel
+class ProductViewModel @Inject constructor(
+    private val productRepository: ProductRepository,
     private val favoriteRepository: FavoriteRepository
+) : ViewModel() {
 
     private val _productList = MutableStateFlow<List<Product>>(emptyList())
     val productList: StateFlow<List<Product>> = _productList
 
-    val favoriteProducts: Flow<List<FavoriteProduct>>
+    val favoriteProducts: Flow<List<FavoriteProduct>> = favoriteRepository.getAllFavorites()
 
     init {
-        // Get DAO from AppDatabase
-        val dao = AppDatabase.getInstance(application).favoriteProductDao()
-        favoriteRepository = FavoriteRepository(dao)
-
-        favoriteProducts = favoriteRepository.getAllFavorites()
-
         fetchProducts()
     }
 
-    private fun fetchProducts() {
+    fun fetchProducts() {
         viewModelScope.launch {
             try {
                 val response = productRepository.getAllProducts()
                 if (response.isSuccessful) {
-                    response.body()?.let { productResponse ->
-                        _productList.value = productResponse.products
+                    response.body()?.let { responseList ->
+                        if (responseList.isNotEmpty()) {
+                            _productList.value = responseList[0].products
+                        }
                     }
                 }
             } catch (e: Exception) {
-                // Handle Exception
+                // TODO: handle error (log/emit state)
             }
         }
     }
+
 
     fun addToFavorites(product: Product) {
         viewModelScope.launch {

@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.navigation.safe.args)
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("com.google.dagger.hilt.android")
 
 }
 
@@ -61,6 +62,11 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+    // OkHttp (Retrofit depends on it, but add explicitly for interceptors)
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-compiler:2.51.1")
     implementation(libs.androidx.room.runtime.android)
     implementation(libs.androidx.swiperefreshlayout)
     kapt("androidx.room:room-compiler:2.7.2")

@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var productAdapter: ProductAdapter
 
-    private var allProducts: List<Product> = emptyList()
+    private var allProducts: List<Product> = emptyList() //
     private var filteredProducts: List<Product> = emptyList()
     private var selectedCategory: String = "All"
     private var selectedCategoryButton: AppCompatButton? = null
@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
         binding.buttonFilter.setOnClickListener {
             showFilterBottomSheet()
         }
-
+        viewModel.fetchProducts()
         setupRecyclerView()
         observeProducts()
         observeFavorites()
@@ -138,24 +138,26 @@ class HomeFragment : Fragment() {
 
             // Default selected button highlighting
             if (category.equals(selectedCategory, ignoreCase = true)) {
-                button.setBackgroundColor(resources.getColor(R.color.red))
+                button.setBackgroundResource(R.drawable.category_button_selected)
+
                 button.setTextColor(resources.getColor(R.color.white))
                 selectedCategoryButton = button
             }
 
             button.setOnClickListener {
-                // Reset previous button color
+                // Reset previous button
                 selectedCategoryButton?.setBackgroundResource(R.drawable.category_button_background)
                 selectedCategoryButton?.setTextColor(resources.getColor(R.color.black))
 
-                // Highlight newly selected
-                button.setBackgroundColor(resources.getColor(R.color.red))
+                // Apply selected style
+                button.setBackgroundResource(R.drawable.category_button_selected)
                 button.setTextColor(resources.getColor(R.color.white))
                 selectedCategoryButton = button
 
                 selectedCategory = category
                 applyFilters()
             }
+
 
             categoryContainer.addView(button)
         }

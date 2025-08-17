@@ -4,8 +4,13 @@ import com.example.productapp.data.local.FavoriteProductDao
 import com.example.productapp.data.model.FavoriteProduct
 import com.example.productapp.data.model.Product
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class FavoriteRepository(private val dao: FavoriteProductDao) {
+@Singleton
+class FavoriteRepository @Inject constructor(
+    private val dao: FavoriteProductDao
+) {
 
     fun getAllFavorites(): Flow<List<FavoriteProduct>> = dao.getAllFavorites()
 
@@ -15,7 +20,7 @@ class FavoriteRepository(private val dao: FavoriteProductDao) {
             title = product.title,
             image = product.image,
             price = product.price,
-            brand = product.brand ?: "Unknown" // handle null safely
+            brand = product.brand ?: "Unknown"
         )
         dao.insertFavorite(favoriteProduct)
     }
@@ -26,7 +31,7 @@ class FavoriteRepository(private val dao: FavoriteProductDao) {
             title = product.title,
             image = product.image,
             price = product.price,
-            brand = product.brand ?: "Unknown" // handle null safely
+            brand = product.brand ?: "Unknown"
         )
         dao.deleteFavorite(favoriteProduct)
     }

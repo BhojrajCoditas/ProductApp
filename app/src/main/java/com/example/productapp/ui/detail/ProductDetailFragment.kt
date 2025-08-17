@@ -35,8 +35,9 @@ class ProductDetailFragment : Fragment() {
         val product = args.product
         unitPrice = product.price
 
+        // this and requiredContext()
         // Load Image Correctly
-        Glide.with(requireContext())
+        Glide.with(this)
             .load(product.image)
             .into(binding.imageProductBanner)
 
@@ -71,9 +72,9 @@ class ProductDetailFragment : Fragment() {
                 binding.textPortionCount.text = portionCount.toString()
                 updateTotalPrice()
             }
-        }
+        }    
     }
-
+     // explore string extension
     private fun updateTotalPrice() {
         val totalPrice = unitPrice * portionCount
         binding.textTotalPrice.text = "₹%.2f".format(totalPrice)
