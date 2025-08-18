@@ -21,7 +21,7 @@
         android:layout_margin="16dp"
         android:src="@drawable/settings_24dp_ffffff_fill0_wght400_grad0_opsz24"
         android:background="@android:color/transparent"
-         />
+        android:contentDescription="@string/app_name" />
 
     <!-- White Rounded Container (Card) -->
     <ScrollView
@@ -47,10 +47,10 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_input_background"
                 android:padding="12dp"
-                android:text="Brad Pitt"
+                android:text="@string/brad_pitt"
                 android:textStyle="bold"
                 android:drawableStart="@drawable/person"
-                android:hint="Name"
+                android:hint="@string/name"
                 android:layout_marginTop="16dp"/>
 
             <!-- Email -->
@@ -61,8 +61,8 @@
                 android:background="@drawable/rounded_input_background"
                 android:padding="12dp"
                 android:drawableStart="@drawable/mail"
-                android:text="bradpitt12@gmail.com"
-                android:hint="Email"
+                android:text="@string/bradpitt12_gmail_com"
+                android:hint="@string/email"
                 android:layout_marginTop="8dp"/>
 
             <!-- Delivery Address -->
@@ -73,8 +73,8 @@
                 android:background="@drawable/rounded_input_background"
                 android:padding="12dp"
                 android:drawableStart="@drawable/location"
-                android:text="123 Main St Apartment 4A, New York, NY"
-                android:hint="Delivery Address"
+                android:text="@string/_123_main_st_apartment_4a_new_york_ny"
+                android:hint="@string/delivery_address"
                 android:layout_marginTop="8dp"/>
 
             <!-- Password -->
@@ -82,12 +82,13 @@
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="password"
                 android:background="@drawable/rounded_input_background"
                 android:padding="12dp"
-                android:text="password123"
+                android:text="@string/password123"
                 android:inputType="textPassword"
                 android:drawableStart="@drawable/lockup"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:layout_marginTop="8dp"/>
 
             <!-- Payment Details -->
@@ -102,13 +103,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Payment Details"
+                    android:text="@string/payment_details"
                     android:textSize="16sp"/>
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/smallright"/>
+                    android:src="@drawable/smallright"
+                    android:contentDescription="@string/app_name"/>
             </LinearLayout>
 
             <!-- Order History -->
@@ -123,13 +125,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Order History"
+                    android:text="@string/order_history"
                     android:textSize="16sp"/>
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/smallright"/>
+                    android:src="@drawable/smallright"
+                    android:contentDescription="@string/app_name"/>
             </LinearLayout>
 
             <!-- Buttons -->
@@ -145,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/button_primary_background"
-                    android:text="Edit Profile"
+                    android:text="@string/edit_profile"
                     android:textColor="@android:color/white"/>
 
                 <Button
@@ -155,7 +158,7 @@
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/button_outline_red"
-                    android:text="Log Out"
+                    android:text="@string/log_out"
                     android:textColor="@color/red"/>
             </LinearLayout>
 
@@ -171,6 +174,7 @@
         android:layout_marginTop="80dp"
         android:padding="4dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/profileimg" />
+        android:src="@drawable/profileimg"
+        android:contentDescription="@string/app_name"/>
 
 </RelativeLayout>

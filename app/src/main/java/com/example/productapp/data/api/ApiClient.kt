@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
-    private const val BASE_URL = "https://fakestoreapi.in/"  // <-- BASE URL ends with /
+    private const val BASE_URL = "https://68a1a22b6f8c17b8f5da5679.mockapi.io/api/v1/"  // <-- BASE URL ends with /
 
     val apiService: ApiService by lazy {
         Retrofit.Builder()

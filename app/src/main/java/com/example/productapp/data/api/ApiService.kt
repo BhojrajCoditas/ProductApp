@@ -8,9 +8,11 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("api/products")
-    suspend fun getAllProducts(): Response<ProductResponse>
+    // Get all products
+    @GET("products")
+    suspend fun getAllProducts(): Response<List<ProductResponse>>
 
-    @GET("api/products/{id}")
-    suspend fun getProductById(@Path("id") productId: Int): Response<Product>
+    // Get single product by ID (if needed)
+//    @GET("products/{id}")
+//    suspend fun getProductById(@Path("id") productId: Int): Response<Product>
 }

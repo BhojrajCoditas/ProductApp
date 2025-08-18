@@ -1,48 +1,31 @@
 package com.example.productapp
 
 import android.os.Bundle
-import android.view.View
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.productapp.databinding.ActivityMainBinding
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.WindowCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Install SplashScreen API
         installSplashScreen()
+
         super.onCreate(savedInstanceState)
-        // Enable edge-to-edge mode
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+        enableEdgeToEdge() // (for edge-to-edge layouts)
+        setContentView(R.layout.activity_main)
 
-        // View Binding
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        //Setup NavController with BottomNavigationView
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
 
-        // Setup NavHostFragment and NavController
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
-
-        // Setup BottomNavigationView with NavController
-        binding.bottomNavigationView.setupWithNavController(navController)
-
-        // Show/Hide BottomNavigationView based on Destination
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                R.id.homeFragment,
-                R.id.favoriteFragment,
-                R.id.profileFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
-                else -> binding.bottomNavigationView.visibility = View.GONE
-            }
-        }
-
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNav.setupWithNavController(navController)
     }
 }
-

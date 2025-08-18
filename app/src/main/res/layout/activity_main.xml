@@ -26,6 +26,4 @@
         android:importantForAccessibility="no"
         android:layout_alignParentBottom="true" />
 
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

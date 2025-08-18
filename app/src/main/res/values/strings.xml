@@ -4,5 +4,24 @@
     <string name="profile">Profile</string>
     <string name="favorites">Favorites</string>
     <string name="home">Home</string>
+    <string name="favorite_icon">favorite_icon</string>
+    <string name="brand">Brand</string>
+    <string name="_0_00">₹0.00</string>
+    <string name="product_title">Product Title</string>
+    <string name="password123">password123</string>
+    <string name="password">Password</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="order_history">Order History</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="log_out">Log Out</string>
+    <string name="_123_main_st_apartment_4a_new_york_ny">123 Main St Apartment 4A, New York, NY</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="email">Email</string>
+    <string name="bradpitt12_gmail_com">bradpitt12@gmail.com</string>
+    <string name="name">Name</string>
+    <string name="brad_pitt">Brad Pitt</string>
+    <string name="decrease">decrease</string>
+    <string name="_1">1</string>
+    <string name="increase">increase</string>
 
 </resources>
