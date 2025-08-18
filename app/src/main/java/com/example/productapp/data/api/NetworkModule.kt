@@ -1,4 +1,3 @@
-// 📂 data/api/NetworkModule.kt
 package com.example.productapp.data.api
 
 import dagger.Module

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.productapp.data.local.AppDatabase
 import com.example.productapp.data.local.FavoriteProductDao
-import com.example.productapp.data.repository.FavoriteRepository
+import com.example.productapp.repository.FavoriteRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
