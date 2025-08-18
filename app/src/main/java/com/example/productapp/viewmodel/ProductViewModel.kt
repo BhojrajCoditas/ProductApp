@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.productapp.data.model.FavoriteProduct
 import com.example.productapp.data.model.Product
-import com.example.productapp.data.repository.FavoriteRepository
-import com.example.productapp.data.repository.ProductRepository
+import com.example.productapp.repository.FavoriteRepository
+import com.example.productapp.repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

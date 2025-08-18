@@ -1,4 +1,4 @@
-package com.example.productapp.data.repository
+package com.example.productapp.repository
 
 import com.example.productapp.data.api.ApiService
 import com.example.productapp.data.model.ProductResponse
